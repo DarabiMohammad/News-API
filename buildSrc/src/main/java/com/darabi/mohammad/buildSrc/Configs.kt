@@ -48,6 +48,7 @@ object Configs {
         private const val MATERIAL_VERSION = "1.3.0"
         private const val LIFECYCLE_VERSION = "2.2.0"
         private const val RETROFIT_VERSION = "2.7.0"
+        private const val HILT_NAVIGATION_VERSION = "1.0.0"
         private const val ROOM_VERSION = "2.2.4"
         private const val GSON_CONVERTER_VERSION = "2.3.0"
         private const val LOGGING_INTERCEPTOR_VERSION = "4.2.2"
@@ -63,6 +64,7 @@ object Configs {
             "androidx.fragment:fragment-ktx:${APPCOMPAT_VERSION}",
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${COROUTINES_VERSION}",
             "com.google.dagger:hilt-android:$HILT_VERSION",
+            "androidx.hilt:hilt-navigation-fragment:$HILT_NAVIGATION_VERSION",
 
             // design libs
             "androidx.constraintlayout:constraintlayout:${CONSTRAINT_VERSION}",

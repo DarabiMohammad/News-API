@@ -1,13 +1,12 @@
-package com.darabi.mohammad.news
+package com.darabi.mohammad.news.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.darabi.mohammad.news.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //3bc9ba4aebe54a9b8827f97c01dcef67
     }
 }
