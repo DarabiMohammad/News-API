@@ -12,6 +12,7 @@ object Configs {
     const val VERSION_NAME = "1.0.0"
     const val JVM_TARGET = "1.8"
     private const val COMPILE_SDK_VERSION = TARGET_SDK_VERSION
+    private const val HILT_VERSION = "2.35"
 
     object Plugins {
 
@@ -23,6 +24,7 @@ object Configs {
 
         const val ANDROID_GRADLE_PLUGIN = "com.android.tools.build:gradle:${AGP_VERSION}"
         const val KOTLIN_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${KOTLIN_PLUGIN_VERSION}"
+        const val HILT_PLUGIN = "com.google.dagger:hilt-android-gradle-plugin:$HILT_VERSION"
     }
 
     object BuildTypes {
@@ -54,50 +56,54 @@ object Configs {
 
         private val libs = listOf (
 
-                // core libs
-                "androidx.core:core-ktx:${CORE_VERSION}",
-                "androidx.appcompat:appcompat:${APPCOMPAT_VERSION}",
-                "androidx.activity:activity-ktx:${ACTIVITY_VERSION}",
-                "androidx.fragment:fragment-ktx:${APPCOMPAT_VERSION}",
-                "org.jetbrains.kotlinx:kotlinx-coroutines-android:${COROUTINES_VERSION}",
+            // core libs
+            "androidx.core:core-ktx:${CORE_VERSION}",
+            "androidx.appcompat:appcompat:${APPCOMPAT_VERSION}",
+            "androidx.activity:activity-ktx:${ACTIVITY_VERSION}",
+            "androidx.fragment:fragment-ktx:${APPCOMPAT_VERSION}",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${COROUTINES_VERSION}",
+            "com.google.dagger:hilt-android:$HILT_VERSION",
 
-                // design libs
-                "androidx.constraintlayout:constraintlayout:${CONSTRAINT_VERSION}",
-                "com.google.android.material:material:${MATERIAL_VERSION}",
-                "androidx.recyclerview:recyclerview:${RECYCLER_VIEW_VERSION}",
-                "androidx.viewpager2:viewpager2:${VIEW_PAGER2_VERSION}",
+            // design libs
+            "androidx.constraintlayout:constraintlayout:${CONSTRAINT_VERSION}",
+            "com.google.android.material:material:${MATERIAL_VERSION}",
+            "androidx.recyclerview:recyclerview:${RECYCLER_VIEW_VERSION}",
+            "androidx.viewpager2:viewpager2:${VIEW_PAGER2_VERSION}",
 
-                // lifeccyle libs
-                "androidx.lifecycle:lifecycle-viewmodel-ktx:${LIFECYCLE_VERSION}",
-                "androidx.lifecycle:lifecycle-extensions:${LIFECYCLE_VERSION}",
-                "androidx.lifecycle:lifecycle-livedata-ktx:${LIFECYCLE_VERSION}",
+            // lifeccyle libs
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:${LIFECYCLE_VERSION}",
+            "androidx.lifecycle:lifecycle-extensions:${LIFECYCLE_VERSION}",
+            "androidx.lifecycle:lifecycle-livedata-ktx:${LIFECYCLE_VERSION}",
 
-                // navigation
-                "androidx.navigation:navigation-dynamic-features-fragment:${NAVIGATION_VERSION}",
-                "androidx.navigation:navigation-fragment-ktx:${NAVIGATION_VERSION}",
-                "androidx.navigation:navigation-ui-ktx:${NAVIGATION_VERSION}",
+            // navigation
+            "androidx.navigation:navigation-dynamic-features-fragment:${NAVIGATION_VERSION}",
+            "androidx.navigation:navigation-fragment-ktx:${NAVIGATION_VERSION}",
+            "androidx.navigation:navigation-ui-ktx:${NAVIGATION_VERSION}",
 
-                // network
-                "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}",
-                "com.squareup.okhttp3:logging-interceptor:${LOGGING_INTERCEPTOR_VERSION}",
-                "com.squareup.retrofit2:converter-gson:${GSON_CONVERTER_VERSION}",
-                "com.google.code.gson:gson:${GSON_VERSION}",
+            // network
+            "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}",
+            "com.squareup.okhttp3:logging-interceptor:${LOGGING_INTERCEPTOR_VERSION}",
+            "com.squareup.retrofit2:converter-gson:${GSON_CONVERTER_VERSION}",
+            "com.google.code.gson:gson:${GSON_VERSION}",
 
-                // cache
-                "androidx.room:room-runtime:${ROOM_VERSION}",
-                "androidx.room:room-ktx:${ROOM_VERSION}",
+            // cache
+            "androidx.room:room-runtime:${ROOM_VERSION}",
+            "androidx.room:room-ktx:${ROOM_VERSION}",
 
-                // glide
-                "com.github.bumptech.glide:glide:${GLIDE_VERSION}"
+            // glide
+            "com.github.bumptech.glide:glide:${GLIDE_VERSION}"
         )
 
         private val proccessors = listOf (
 
-                // cache
-                "androidx.room:room-compiler:${ROOM_VERSION}",
+            // hilt
+            "com.google.dagger:hilt-android-compiler:$HILT_VERSION",
 
-                // glide
-                "com.github.bumptech.glide:compiler:${GLIDE_VERSION}"
+            // cache
+            "androidx.room:room-compiler:${ROOM_VERSION}",
+
+            // glide
+            "com.github.bumptech.glide:compiler:${GLIDE_VERSION}"
         )
 
         fun DependencyHandler.dependencies() {

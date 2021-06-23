@@ -5,6 +5,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -25,17 +26,29 @@ android {
     buildTypes {
 
         getByName(Configs.BuildTypes.RELEASE) {
+
             isMinifyEnabled = true
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
+
+            buildConfigField("String","BASE_URL","\"https://newsapi.org/v2/\"")
+
+            buildConfigField("String","API_KEY","\"3bc9ba4aebe54a9b8827f97c01dcef67\"")
         }
 
         getByName(Configs.BuildTypes.DEBUG) {
+
             isMinifyEnabled = false
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
+
+            buildConfigField("String","BASE_URL","\"https://newsapi.org/v2/\"")
+
+            buildConfigField("String","API_KEY","\"3bc9ba4aebe54a9b8827f97c01dcef67\"")
         }
     }
 

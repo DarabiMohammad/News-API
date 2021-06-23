@@ -7,8 +7,10 @@ buildscript {
     }
 
     dependencies {
+
         classpath(com.darabi.mohammad.buildSrc.Configs.Plugins.ANDROID_GRADLE_PLUGIN)
         classpath(com.darabi.mohammad.buildSrc.Configs.Plugins.KOTLIN_PLUGIN)
+        classpath(com.darabi.mohammad.buildSrc.Configs.Plugins.HILT_PLUGIN)
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle.kts files
