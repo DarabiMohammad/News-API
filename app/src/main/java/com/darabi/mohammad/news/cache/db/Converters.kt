@@ -9,8 +9,7 @@ import javax.inject.Inject
 
 class Converters @Inject constructor() {
 
-    @Inject
-    internal lateinit var gson: Gson
+    private val gson: Gson by lazy { Gson() }
 
     @TypeConverter
     fun fromString(string: String): ArticlesEntity = gson.fromJson(string, getType<ArticlesEntity>())

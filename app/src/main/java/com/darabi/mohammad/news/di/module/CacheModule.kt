@@ -22,9 +22,6 @@ abstract class CacheModule {
     companion object {
 
         @Provides
-        fun provideGson(): Gson = Gson()
-
-        @Provides
         fun provideDatabase(@ApplicationContext appContext: Context): ArticlesDatabase = ArticlesDatabase.getInstance(appContext)
     }
 }

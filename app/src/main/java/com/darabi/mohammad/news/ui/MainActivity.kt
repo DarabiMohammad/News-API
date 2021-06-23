@@ -3,6 +3,7 @@ package com.darabi.mohammad.news.ui
 import android.os.Bundle
 import com.darabi.mohammad.news.R
 import com.darabi.mohammad.news.remote.dto.Status
+import com.darabi.mohammad.news.utils.enums.Language
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

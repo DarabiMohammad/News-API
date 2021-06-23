@@ -9,6 +9,7 @@ interface ArticlesApi {
 
     @GET("everything")
     suspend fun getArticles(
+        @Query("q") searchWord: String,
         @Query("language") language: String,
         @Query("pageSize") pageSize: Int,
         @Query("page") pageNumber: Int

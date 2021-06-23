@@ -1,10 +1,10 @@
 package com.darabi.mohammad.news.utils.enums
 
-enum class Language (code: String) {
+sealed class Language constructor(val code: String){
 
-    ARABIC("ar"),
-    DEUTCHLAND("de"),
-    ENGLISH("en"),
-    ITALY("it"),
-    RUSSIAN("ru")
+    object Arabic : Language ("ar")
+    object Deutchland : Language("de")
+    object English : Language("en")
+    object Italy : Language("it")
+    object Russia : Language("ru")
 }

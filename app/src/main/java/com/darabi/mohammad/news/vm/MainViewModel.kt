@@ -17,7 +17,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     fun getArticles(pageNumber: Int) = loadingLiveData {
-        repository.getArticles(Language.ENGLISH.name, PAGING_SIZE, pageNumber)
+        repository.getArticles(Language.English.code, PAGING_SIZE, pageNumber)
     }
 
     private inline fun <T> loadingLiveData(crossinline function: suspend () -> Result<T>): LiveData<Result<T>> = liveData {
