@@ -1,8 +1,13 @@
 package com.darabi.mohammad.news.cache.entity
 
+data class ArticlesEntity (
+    val status: String,
+    val totalResults: Int,
+    val articles: List<ArticleEntity>
+)
+
 data class ArticleEntity (
 
-    val articleId: Int,
     val source: SourceEntity,
     val author: String,
     val title: String,

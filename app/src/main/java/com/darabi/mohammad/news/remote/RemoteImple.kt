@@ -14,7 +14,4 @@ class RemoteImple @Inject constructor(
     override suspend fun getArticles(language: String, pageSize: Int, pageNumber: Int): Result<Articles> = safeApiCall {
         apiService.getArticles(language, pageSize, pageNumber)
     }
-
-    override suspend fun saveArticles() =
-        throw UnsupportedOperationException("Save Functionality Can't Be Implemented In Remote Layer.")
 }

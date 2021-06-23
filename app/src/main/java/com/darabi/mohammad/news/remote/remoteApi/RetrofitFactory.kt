@@ -7,11 +7,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class RetrofitFactory @Inject constructor(private val loggingInterceptor: HttpLoggingInterceptor) {
+class RetrofitFactory @Inject constructor(
+    private val loggingInterceptor: HttpLoggingInterceptor,
+    private val interceptor: RetrofitInterceptor
+) {
 
     private val timeOut = 60L
 
-    fun makeArticlesService(baseUrl: String, apiKey: String, isDebugMode: Boolean): ArticlesApi =
+    fun makeArticlesService(baseUrl: String, isDebugMode: Boolean): ArticlesApi =
         makeNewsService(baseUrl, makeOkHttpClient(makeLoggingInterceptor(isDebugMode)))
 
     private fun makeNewsService(baseUrl: String, okHttpClient: OkHttpClient): ArticlesApi =
@@ -23,6 +26,7 @@ class RetrofitFactory @Inject constructor(private val loggingInterceptor: HttpLo
 
     private fun makeOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
         OkHttpClient.Builder()
+            .addInterceptor(interceptor)
             .addInterceptor(httpLoggingInterceptor)
             .connectTimeout(timeOut, TimeUnit.SECONDS)
             .readTimeout(timeOut, TimeUnit.SECONDS).build()

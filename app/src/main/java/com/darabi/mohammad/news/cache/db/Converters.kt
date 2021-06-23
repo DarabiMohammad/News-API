@@ -1,10 +1,10 @@
 package com.darabi.mohammad.news.cache.db
 
 import androidx.room.TypeConverter
-import com.darabi.mohammad.news.cache.entity.ArticleEntity
-import java.lang.reflect.Type
+import com.darabi.mohammad.news.cache.entity.ArticlesEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
 import javax.inject.Inject
 
 class Converters @Inject constructor() {
@@ -13,10 +13,10 @@ class Converters @Inject constructor() {
     internal lateinit var gson: Gson
 
     @TypeConverter
-    fun fromString(string: String): List<ArticleEntity> = gson.fromJson(string, getType<List<ArticleEntity>>())
+    fun fromString(string: String): ArticlesEntity = gson.fromJson(string, getType<ArticlesEntity>())
 
     @TypeConverter
-    fun toString(list: List<ArticleEntity>): String = gson.toJson(list, getType<List<ArticleEntity>>())
+    fun toString(articlesEntity: ArticlesEntity): String = gson.toJson(articlesEntity, getType<ArticlesEntity>())
 }
 
 inline fun <reified T> getType(): Type = object : TypeToken<T>() {}.type

@@ -11,5 +11,5 @@ data class PageEntity(
     @PrimaryKey
     @ColumnInfo(name = PAGE_NUMBER)
     val pageNumber: Int,
-    val articles: List<ArticleEntity>
+    val articles: ArticlesEntity
 )

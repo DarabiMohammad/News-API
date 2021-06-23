@@ -57,6 +57,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = Configs.JVM_TARGET
+    }
+
     buildFeatures {
         viewBinding = true
     }
