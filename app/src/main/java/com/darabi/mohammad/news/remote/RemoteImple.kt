@@ -11,6 +11,7 @@ class RemoteImple @Inject constructor(
     private val apiService: ArticlesApi
 ) : Remote {
 
+    // todo app crashes in case which pageNumber is 6!
     override suspend fun getArticles(searchWord: String, language: String, pageSize: Int, pageNumber: Int): Result<Articles> = safeApiCall {
         apiService.getArticles(searchWord, language, pageSize, pageNumber)
     }

@@ -30,7 +30,7 @@ class ArticlesFragment @Inject constructor() : BaseFragment(), EndlessAdapterCal
     private val viewModel: ArticleViewModel by viewModels()
     private val adapter: ArticleRecyclerAdapter by lazy { ArticleRecyclerAdapter(this) }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentArticlesBinding.inflate(inflater)
         return binding.root
     }
@@ -38,13 +38,13 @@ class ArticlesFragment @Inject constructor() : BaseFragment(), EndlessAdapterCal
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initView()
         viewModel.getArticles().observe(viewLifecycleOwner, this)
-        val sdf = viewModel.pageNumber
     }
 
     override fun onChanged(result: Result<Articles>) {
         when (result.status) {
-            Status.LOADING -> initView()
+            Status.LOADING -> { /* loading stuffs */ }
             Status.SUCCESS -> {
                 result.result?.articles?.let { if (viewModel.pageNumber > 1) adapter.addSource(it) else adapter.setSource(it) }
                 binding.rcvArticles.fadeIn()
@@ -57,6 +57,7 @@ class ArticlesFragment @Inject constructor() : BaseFragment(), EndlessAdapterCal
     override fun loadNextChunck() = viewModel.getArticles().observe(viewLifecycleOwner, this)
 
     override fun onAdapterItemClick(item: Article) {
+        interactorViewModel.onArticleClick.value = item
     }
 
     private fun initView() {

@@ -18,7 +18,7 @@ import javax.inject.Inject
 class MainFragment @Inject constructor(
     private val articlesFragment: ArticlesFragment,
     private val profileFragment: ProfileFragment
-) : BaseFragment(), BottomNavigationView.OnNavigationItemReselectedListener {
+) : BaseFragment(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: FragmentMainBinding
 
@@ -33,12 +33,13 @@ class MainFragment @Inject constructor(
         initViews()
     }
 
-    override fun onNavigationItemReselected(item: MenuItem) {
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
         binding.viewPager.currentItem = if (item.itemId == R.id.item_article) 0 else 1
+        return true
     }
 
     private fun initViews() {
-        binding.bottomNavigation.setOnNavigationItemReselectedListener(this)
+        binding.bottomNavigation.setOnNavigationItemSelectedListener(this)
         binding.viewPager.adapter = PagerAdapter()
     }
 

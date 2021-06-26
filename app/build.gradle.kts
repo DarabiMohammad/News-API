@@ -36,7 +36,7 @@ android {
             )
 
             buildConfigField("String","BASE_URL","\"https://newsapi.org/v2/\"")
-
+            buildConfigField("String","GITHUB_LINK","\"https://github.com/DarabiMohammad\"")
             buildConfigField("String","API_KEY","\"3bc9ba4aebe54a9b8827f97c01dcef67\"")
         }
 
@@ -49,7 +49,7 @@ android {
             )
 
             buildConfigField("String","BASE_URL","\"https://newsapi.org/v2/\"")
-
+            buildConfigField("String","GITHUB_LINK","\"https://github.com/DarabiMohammad\"")
             buildConfigField("String","API_KEY","\"3bc9ba4aebe54a9b8827f97c01dcef67\"")
         }
     }

@@ -7,6 +7,7 @@ import com.darabi.mohammad.news.cache.mapper.CacheMapper
 import com.darabi.mohammad.news.remote.dto.Articles
 import com.darabi.mohammad.news.remote.dto.Result
 import com.darabi.mohammad.news.repository.Cache
+import com.darabi.mohammad.news.utils.safeDatabaseCall
 import javax.inject.Inject
 
 class CacheImpl @Inject constructor(
@@ -23,14 +24,13 @@ class CacheImpl @Inject constructor(
      * @param language
      * @param pageSize
      */
-    override suspend fun getArticles(searchWord: String, language: String, pageSize: Int, pageNumber: Int): Result<Articles> =
-        dao.getArticlesByPageNumber(pageNumber).run {
-            if (this != null)
-                Result.success(mapper.mapFormEntity(this.articles))
-            else
-                Result.error(NullPointerException())
-        }
+    override suspend fun getArticles(
+        searchWord: String, language: String, pageSize: Int, pageNumber: Int
+    ): Result<Articles> = safeDatabaseCall {
+        mapper.mapFormEntity(dao.getArticlesByPageNumber(pageNumber)!!.articles)
+    }
 
-    override suspend fun saveArticles(articles: Articles, pageNumber: Int): Result<Long> =
-        Result.success(dao.insertNewArticles(PageEntity(pageNumber, mapper.mapToEntity(articles))))
+    override suspend fun saveArticles(articles: Articles, pageNumber: Int): Result<Long> = safeDatabaseCall {
+        dao.insertNewArticles(PageEntity(pageNumber, mapper.mapToEntity(articles)))
+    }
 }

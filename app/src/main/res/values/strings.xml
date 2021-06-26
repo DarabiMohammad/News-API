@@ -4,4 +4,11 @@
     <string name="article">Atticles</string>
     <string name="profile">Profile</string>
     <string name="splash">Splash</string>
+
+    <!--  profile  -->
+    <string name="my_name">Mohammad Darabi</string>
+    <string name="github_repo">My Github Repo</string>
+    <string name="information">Information</string>
+    <string name="about_me">About Me</string>
+    <string name="description">"I'm Mohammad Darabi and i've been programming for two years, So far. I've worked on three startups and I am fluent in java and kotlin. I love programming and learning."</string>
 </resources>

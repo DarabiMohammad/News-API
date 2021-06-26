@@ -12,12 +12,10 @@ class Repository @Inject constructor(
 ) : AbstractRepository {
 
     override suspend fun getArticles(searchWord: String, language: String, pageSize: Int, pageNumber: Int): Result<Articles> = try {
-        cache.getArticles(searchWord, language, pageSize, pageNumber).takeIf {
-            it.status == Status.SUCCESS
-        } ?: remote.getArticles(searchWord, language, pageSize, pageNumber).also {
+        cache.getArticles(searchWord, language, pageSize, pageNumber)
+    } catch (exception: Exception) {
+        remote.getArticles(searchWord, language, pageSize, pageNumber).also {
             it.result?.let { articles -> cache.saveArticles(articles, pageNumber) }
         }
-    } catch (exception: Exception) {
-        Result.error<Articles>(exception)
     }
 }

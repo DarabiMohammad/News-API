@@ -10,3 +10,9 @@ suspend inline fun <T> safeApiCall(crossinline apiService: suspend () -> Respons
 } catch (error: Exception) {
     withContext(Dispatchers.Main) { error(error) }
 }
+
+suspend inline fun <T> safeDatabaseCall(crossinline databaseCall: suspend () -> T): Result<T> = try {
+    withContext(Dispatchers.IO) { Result.success(data = databaseCall()!!) }
+} catch (error: Exception) {
+    withContext(Dispatchers.Main) { error(error) }
+}
