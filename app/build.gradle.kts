@@ -6,6 +6,7 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
+    id("kotlin-android")
 }
 
 android {
@@ -21,6 +22,7 @@ android {
         versionName = Configs.VERSION_NAME
 
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -68,5 +70,6 @@ android {
 
 dependencies {
 
+//    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     dependencies()
 }

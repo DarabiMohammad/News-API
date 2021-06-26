@@ -67,9 +67,4 @@ abstract class EndlessRecyclerAdapter <O, VH: BaseEndlessViewHolder<O>> : Recycl
             notifyItemRangeInserted(lastIndex, source.size)
         }
     }
-
-    fun remove(item: O) {
-        notifyItemRemoved(objects.lastIndexOf(item))
-        objects.remove(item)
-    }
 }

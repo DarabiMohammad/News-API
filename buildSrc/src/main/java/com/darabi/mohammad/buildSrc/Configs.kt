@@ -1,6 +1,7 @@
 package com.darabi.mohammad.buildSrc
 
 import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.kotlin.dsl.extra
 
 object Configs {
 
@@ -11,16 +12,15 @@ object Configs {
     const val VERSION_CODE = 1
     const val VERSION_NAME = "1.0.0"
     const val JVM_TARGET = "1.8"
-    private const val COMPILE_SDK_VERSION = TARGET_SDK_VERSION
+
+    //Kotlin Plugin Version
+    private const val KOTLIN_PLUGIN_VERSION = "1.4.32"
     private const val HILT_VERSION = "2.35"
 
     object Plugins {
 
         //Android Gradle Plugin Version
         private const val AGP_VERSION = "4.1.3"
-
-        //Kotlin Plugin Version
-        private const val KOTLIN_PLUGIN_VERSION = "1.4.32"
 
         const val ANDROID_GRADLE_PLUGIN = "com.android.tools.build:gradle:${AGP_VERSION}"
         const val KOTLIN_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${KOTLIN_PLUGIN_VERSION}"
@@ -38,7 +38,9 @@ object Configs {
         private const val KAPT = "kapt"
 
         private const val CORE_VERSION = "1.5.0"
+        private const val MULTI_DEX_VERSION = "2.0.1"
         private const val APPCOMPAT_VERSION = "1.3.0"
+        private const val FRAGMENT_VERSION = "1.3.5"
         private const val ACTIVITY_VERSION = "1.2.3"
         private const val COROUTINES_VERSION = "1.4.2"
         private const val RECYCLER_VIEW_VERSION = "1.2.1"
@@ -58,10 +60,12 @@ object Configs {
         private val libs = listOf (
 
             // core libs
+            "org.jetbrains.kotlin:kotlin-stdlib:${KOTLIN_PLUGIN_VERSION}",
             "androidx.core:core-ktx:${CORE_VERSION}",
+            "androidx.multidex:multidex:$MULTI_DEX_VERSION",
             "androidx.appcompat:appcompat:${APPCOMPAT_VERSION}",
             "androidx.activity:activity-ktx:${ACTIVITY_VERSION}",
-            "androidx.fragment:fragment-ktx:${APPCOMPAT_VERSION}",
+            "androidx.fragment:fragment-ktx:${FRAGMENT_VERSION}",
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${COROUTINES_VERSION}",
             "com.google.dagger:hilt-android:$HILT_VERSION",
             "androidx.hilt:hilt-navigation-fragment:$HILT_NAVIGATION_VERSION",

@@ -16,6 +16,6 @@ class Converters @Inject constructor() {
 
     @TypeConverter
     fun toString(articlesEntity: ArticlesEntity): String = gson.toJson(articlesEntity, getType<ArticlesEntity>())
-}
 
-inline fun <reified T> getType(): Type = object : TypeToken<T>() {}.type
+    private inline fun <reified T> getType(): Type = object : TypeToken<T>() {}.type
+}

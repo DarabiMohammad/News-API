@@ -19,10 +19,11 @@ class CacheImpl @Inject constructor(
     /**
      * at this point, some parameters are not in use. unused parameters:
      *
+     * @param searchWord
      * @param language
      * @param pageSize
      */
-    override suspend fun getArticles(language: String, pageSize: Int, pageNumber: Int): Result<Articles> =
+    override suspend fun getArticles(searchWord: String, language: String, pageSize: Int, pageNumber: Int): Result<Articles> =
         dao.getArticlesByPageNumber(pageNumber).run {
             if (this != null)
                 Result.success(mapper.mapFormEntity(this.articles))

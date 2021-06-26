@@ -1,6 +1,21 @@
 package com.darabi.mohammad.news.ui.fragments
 
-import com.darabi.mohammad.news.R
+import androidx.lifecycle.lifecycleScope
+import com.darabi.mohammad.news.ui.base.BaseFragment
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SplashFragment : BaseFragment(R.layout.fragment_splash){
+class SplashFragment @Inject constructor() : BaseFragment() {
+
+    private val splashDurationTime: Long = 3000
+
+    override fun onResume() {
+        super.onResume()
+
+        lifecycleScope.launch {
+            delay(splashDurationTime)
+            interactorViewModel.onSplashFinished.value = true
+        }
+    }
 }

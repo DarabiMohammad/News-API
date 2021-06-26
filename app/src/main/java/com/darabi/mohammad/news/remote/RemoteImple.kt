@@ -11,8 +11,7 @@ class RemoteImple @Inject constructor(
     private val apiService: ArticlesApi
 ) : Remote {
 
-    // todo : hard coded function.
-    override suspend fun getArticles(language: String, pageSize: Int, pageNumber: Int): Result<Articles> = safeApiCall {
-        apiService.getArticles("bitcoin", language, pageSize, pageNumber)
+    override suspend fun getArticles(searchWord: String, language: String, pageSize: Int, pageNumber: Int): Result<Articles> = safeApiCall {
+        apiService.getArticles(searchWord, language, pageSize, pageNumber)
     }
 }

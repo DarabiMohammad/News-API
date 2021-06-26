@@ -5,5 +5,5 @@ import com.darabi.mohammad.news.remote.dto.Result
 
 interface AbstractRepository {
 
-    suspend fun getArticles(language: String, pageSize: Int, pageNumber: Int): Result<Articles>
+    suspend fun getArticles(searchWord: String, language: String, pageSize: Int, pageNumber: Int): Result<Articles>
 }
