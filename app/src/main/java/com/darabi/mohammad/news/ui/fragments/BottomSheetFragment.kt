@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.darabi.mohammad.news.databinding.FragmentBottomSheetBinding
 import com.darabi.mohammad.news.ui.base.BaseFragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class BottomSheetFragment @Inject constructor() : BaseFragment() {
+class BottomSheetFragment @Inject constructor() : BottomSheetDialogFragment() {
 
     internal lateinit var binding: FragmentBottomSheetBinding
 

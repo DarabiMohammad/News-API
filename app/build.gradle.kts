@@ -7,6 +7,8 @@ plugins {
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
     id("kotlin-android")
+    id("kotlin-android-extensions")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -65,6 +67,10 @@ android {
 
     buildFeatures {
         viewBinding = true
+    }
+
+    androidExtensions {
+        isExperimental = true
     }
 }
 

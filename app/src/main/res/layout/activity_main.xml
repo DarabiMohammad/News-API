@@ -8,28 +8,11 @@
     tools:context=".ui.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/main_framgne_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/shadow_view"
+        android:id="@+id/main_nav_host"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_gradient_top_shadow"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="gone" >
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/bottom_sheet_Container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            app:behavior_hideable="true"
-            app:behavior_peekHeight="360dp"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/main_activity_graph"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

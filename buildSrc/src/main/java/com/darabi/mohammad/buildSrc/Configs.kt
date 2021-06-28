@@ -22,9 +22,13 @@ object Configs {
         //Android Gradle Plugin Version
         private const val AGP_VERSION = "4.1.3"
 
+        //Safe Args Plugin Version
+        private const val SAFE_ARGS_PLUGIN_VERSION = "2.3.5"
+
         const val ANDROID_GRADLE_PLUGIN = "com.android.tools.build:gradle:${AGP_VERSION}"
         const val KOTLIN_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:${KOTLIN_PLUGIN_VERSION}"
         const val HILT_PLUGIN = "com.google.dagger:hilt-android-gradle-plugin:$HILT_VERSION"
+        const val SAFE_ARGS_PLUGIN = "androidx.navigation:navigation-safe-args-gradle-plugin:${SAFE_ARGS_PLUGIN_VERSION}"
     }
 
     object BuildTypes {

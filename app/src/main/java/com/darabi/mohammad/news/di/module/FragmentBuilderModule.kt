@@ -2,21 +2,17 @@ package com.darabi.mohammad.news.di.module
 
 import androidx.fragment.app.Fragment
 import com.darabi.mohammad.news.di.annotation.FragmentKey
-import com.darabi.mohammad.news.ui.fragments.BottomSheetFragment
-import com.darabi.mohammad.news.ui.fragments.MainFragment
-import com.darabi.mohammad.news.ui.fragments.SplashFragment
+import com.darabi.mohammad.news.ui.fragments.*
 import com.darabi.mohammad.news.ui.fragments.article.ArticlesFragment
-import com.darabi.mohammad.news.ui.fragments.detail.ArticleDetailFragment
-import com.darabi.mohammad.news.ui.fragments.profile.ProfileFragment
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoMap
 
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 abstract class FragmentBuilderModule {
 
     @Binds
@@ -48,5 +44,4 @@ abstract class FragmentBuilderModule {
     @IntoMap
     @FragmentKey(SplashFragment::class)
     abstract fun bindSplashFragment(fragment: SplashFragment): Fragment
-
 }

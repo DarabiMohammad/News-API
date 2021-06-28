@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.darabi.mohammad.news.ui.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.darabi.mohammad.news.ui.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
+
+    <action
+        android:id="@+id/action_activity_to_articleDetailFragment"
+        app:launchSingleTop="true"
+        app:destination="@id/articleDetailFragment" />
+
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.darabi.mohammad.news.ui.fragments.ArticleDetailFragment"
+        android:label="ArticleDetailFragment"
+        tools:layout="@layout/fragment_article_detail">
+
+        <argument
+            android:name="article"
+            app:argType="com.darabi.mohammad.news.remote.dto.Article"
+            app:nullable="false" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_activity_to_bottom_sheet"
+        app:launchSingleTop="true"
+        app:destination="@+id/bottomSheet"/>
+
+    <dialog
+        android:id="@+id/bottomSheet"
+        android:name="com.darabi.mohammad.news.ui.fragments.BottomSheetFragment"
+        android:label="BottomSheetFragment"
+        tools:layout="@layout/fragment_bottom_sheet"/>
+
+</navigation>

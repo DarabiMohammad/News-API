@@ -2,8 +2,6 @@ package com.darabi.mohammad.news.repository
 
 import com.darabi.mohammad.news.remote.dto.Articles
 import com.darabi.mohammad.news.remote.dto.Result
-import com.darabi.mohammad.news.remote.dto.Status
-import java.lang.Exception
 import javax.inject.Inject
 
 class Repository @Inject constructor(

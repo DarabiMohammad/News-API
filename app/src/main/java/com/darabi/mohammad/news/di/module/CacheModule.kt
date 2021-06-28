@@ -4,7 +4,6 @@ import android.content.Context
 import com.darabi.mohammad.news.cache.CacheImpl
 import com.darabi.mohammad.news.cache.db.ArticlesDatabase
 import com.darabi.mohammad.news.repository.Cache
-import com.google.gson.Gson
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

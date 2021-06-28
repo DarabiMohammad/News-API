@@ -1,7 +1,8 @@
 package com.darabi.mohammad.news.remote.dto
 
-import android.os.Parcel
 import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
 
 data class Articles (
     val status: String,
@@ -9,28 +10,16 @@ data class Articles (
     val articles: List<Article>
 )
 
+@Parcelize
 data class Article (
-    val source: Source,
-    val author: String,
-    val title: String,
-    val description: String,
-    val url: String,
-    val urlToImage: String?,
-    val publishedAt: String,
-    val content: String
-) //: Parcelable {
-
-//    override fun describeContents(): Int = 0
-//
-//    override fun writeToParcel(dest: Parcel?, flags: Int) {
-//        writeString(author)
-//        writeString(title)
-//        writeString(description)
-//        writeString(url)
-//        writeString(urlToImage)
-//        writeString(publishedAt)
-//        writeString(content)
-//    }
-//}
+    val source: @RawValue Source,
+    val author: @RawValue String,
+    val title: @RawValue String,
+    val description: @RawValue String,
+    val url: @RawValue String,
+    val urlToImage: @RawValue String?,
+    val publishedAt: @RawValue String,
+    val content: @RawValue String
+) : Parcelable
 
 data class Source (val id: String?, val name: String)

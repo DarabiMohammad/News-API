@@ -11,18 +11,19 @@ import com.darabi.mohammad.news.R
 import com.darabi.mohammad.news.databinding.FragmentMainBinding
 import com.darabi.mohammad.news.ui.base.BaseFragment
 import com.darabi.mohammad.news.ui.fragments.article.ArticlesFragment
-import com.darabi.mohammad.news.ui.fragments.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainFragment @Inject constructor(
     private val articlesFragment: ArticlesFragment,
-    private val profileFragment: ProfileFragment
+    private val profileFragment: ProfileFragment,
 ) : BaseFragment(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: FragmentMainBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentMainBinding.inflate(inflater)
         return binding.root
     }

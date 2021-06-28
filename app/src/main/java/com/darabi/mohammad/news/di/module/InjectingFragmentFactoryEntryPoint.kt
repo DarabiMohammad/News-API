@@ -1,8 +1,13 @@
 package com.darabi.mohammad.news.di.module
 
-//@EntryPoint
-//@InstallIn(SingletonComponent::class)
-//interface InjectingFragmentFactoryEntryPoint {
-//
-//    fun getFragmentFactory(): InjectingFragmentFactory
-//}
+import com.darabi.mohammad.news.utils.factory.InjectingFragmentFactory
+import dagger.hilt.EntryPoint
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+
+@EntryPoint
+@InstallIn(ActivityComponent::class)
+interface InjectingFragmentFactoryEntryPoint {
+
+    fun getFragmentFactory(): InjectingFragmentFactory
+}

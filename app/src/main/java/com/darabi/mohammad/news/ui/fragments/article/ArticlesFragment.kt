@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.darabi.mohammad.news.MainNavGraphDirections.Companion.actionActivityToArticleDetailFragment
 import com.darabi.mohammad.news.databinding.FragmentArticlesBinding
 import com.darabi.mohammad.news.remote.dto.Article
 import com.darabi.mohammad.news.remote.dto.Articles
@@ -46,7 +48,12 @@ class ArticlesFragment @Inject constructor() : BaseFragment(), EndlessAdapterCal
         when (result.status) {
             Status.LOADING -> { /* loading stuffs */ }
             Status.SUCCESS -> {
-                result.result?.articles?.let { if (viewModel.pageNumber > 1) adapter.addSource(it) else adapter.setSource(it) }
+                result.result?.articles?.let {
+                    if (viewModel.pageNumber > 1)
+                        adapter.addSource(it)
+                    else
+                        adapter.setSource(it)
+                }
                 binding.rcvArticles.fadeIn()
                 binding.prgLoading.fadeOut()
             }
@@ -57,7 +64,7 @@ class ArticlesFragment @Inject constructor() : BaseFragment(), EndlessAdapterCal
     override fun loadNextChunck() = viewModel.getArticles().observe(viewLifecycleOwner, this)
 
     override fun onAdapterItemClick(item: Article) {
-        interactorViewModel.onArticleClick.value = item
+        findNavController().navigate(actionActivityToArticleDetailFragment(item))
     }
 
     private fun initView() {
